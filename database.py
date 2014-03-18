@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
-db_uri = os.environ.get('DATABASE_URL','sqlite:////tmp/test.db')
+db_uri = os.environ.get('HEROKU_POSTGRESQL_AQUA_URL','sqlite:////tmp/test.db')
 engine = create_engine(db_uri, convert_unicode=True)
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
